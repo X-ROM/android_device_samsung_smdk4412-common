@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2012 The CyanogenMod Project
+# Copyright (C) 2012 The LiquidSmooth Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,7 +17,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter i9300 n7100 n8000 n8013 t0lte i605 l900,$(TARGET_DEVICE)),)
+ifneq ($(filter i9300 n7100 n8000 n8013 t0lte t0ltecdma i605 l900,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 

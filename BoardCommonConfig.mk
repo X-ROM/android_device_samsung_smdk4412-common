@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2012 The CyanogenMod Project
+# Copyright (C) 2012 The LiquidSmooth Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,11 +15,8 @@
 # limitations under the License.
 #
 
-# This variable is set first, so it can be overridden
-# by BoardConfigVendor.mk
 USE_CAMERA_STUB := true
 BOARD_USES_GENERIC_AUDIO := false
-
 TARGET_BOOTANIMATION_PRELOAD := true
 
 TARGET_CPU_ABI := armeabi-v7a
@@ -46,9 +44,6 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 TARGET_PROVIDES_INIT := true
-TARGET_PROVIDES_INIT_TARGET_RC := true
-TARGET_RECOVERY_INITRC := device/samsung/smdk4412-common/recovery.rc
-
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/smdk4412-common/overlay/include
 
 # Kernel
@@ -132,9 +127,6 @@ BOARD_BLUEDROID_VENDOR_CONF := device/samsung/smdk4412-common/bluetooth/vnd_smdk
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/s3c-usbgadget/gadget/lun%d/file"
 
 # Recovery
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/smdk4412-common/recovery/recovery_keys.c
-BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/smdk4412-common/recovery/graphics.c
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
 BOARD_USES_MMCUTILS := true
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -145,5 +137,4 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_BATTERY_DEVICE_NAME := "battery"
 
-# inherit from the proprietary version
 -include vendor/samsung/smdk4412-common/BoardConfigVendor.mk

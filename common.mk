@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2012 The CyanogenMod Project
+# Copyright (C) 2012 The LiquidSmooth Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -52,7 +53,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=15
+    wifi.supplicant_scan_interval=180
 
 # Gps
 PRODUCT_COPY_FILES += \
@@ -64,7 +65,6 @@ PRODUCT_PACKAGES := \
     audio.primary.smdk4x12 \
     audio.usb.default \
     camera.exynos4 \
-    Camera \
     com.android.future.usb.accessory \
     gralloc.exynos4 \
     hwcomposer.exynos4 \
@@ -72,8 +72,7 @@ PRODUCT_PACKAGES := \
     libsync \
     lights.exynos4 \
     macloader \
-    tinymix \
-    Torch    
+    tinymix   
 
 # MFC API
 PRODUCT_PACKAGES += \
@@ -90,7 +89,6 @@ PRODUCT_PACKAGES += \
     libOMX.SEC.WMV.Decoder \
     libOMX.SEC.AVC.Encoder \
     libOMX.SEC.M4V.Encoder
-#   libOMX.SEC.VP8.Decoder
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
@@ -101,18 +99,6 @@ PRODUCT_PACKAGES += \
     static_busybox \
     make_ext4fs \
     setup_fs
-
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-    Galaxy4 \
-    HoloSpiralWallpaper \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    NoiseField \
-    PhaseBeam \
-    VisualizationWallpapers \
-    librs_jni
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -138,10 +124,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml
 
-# Feature live wallpaper
-PRODUCT_COPY_FILES += \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     hwui.render_dirty_regions=false
@@ -152,7 +134,9 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+# Required For Boot DO NOT DELETE!
+PRODUCT_PROPERTY_OVERRIDES += \
+	dalvik.vm.dexopt-data-only=1
 
 # Include exynos4 platform specific parts
 TARGET_HAL_PATH := hardware/samsung/exynos4/hal
