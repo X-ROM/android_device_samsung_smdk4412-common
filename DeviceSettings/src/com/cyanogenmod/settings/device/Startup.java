@@ -36,6 +36,5 @@ public class Startup extends BroadcastReceiver {
         LedFade.restore(context);
         TouchkeyTimeout.restore(context);
         VibratorTuningPreference.restore(context);
-        SPenPowerSavingMode.restore(context);
     }
 }
